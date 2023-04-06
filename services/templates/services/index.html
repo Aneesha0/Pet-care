@@ -1,0 +1,12 @@
+{% extends 'C:\Users\anjan\Documents\Bluelight\Django\wada\templates\base.html' %}
+{% block content %}
+{% if services_list %}
+    <ul>
+    {% for serv in services_list %}
+        <li><a href="{% url 'book' %}">book {{ serv.services_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No services are available.</p>
+{% endif %}
+{% endblock %}

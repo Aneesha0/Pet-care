@@ -1,0 +1,31 @@
+{% extends 'C:\Users\anjan\Documents\Bluelight\Django\wada\templates\base.html' %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p>Service: {{service}}
+    <p>Total Amount: {{cost_}}
+    <!-- <fieldset>
+        <label for={{form.id_owner}}>Owner Name: </label>{{form.owner}}<br>
+        <label for={{form.id_pet_name}}>Pet Name: </label>{{form.pet_name}}<br>
+        <label for={{form.id_animal}}>Type of Pet: </label>{{form.animal}}<br>
+        <label for="Services">Service Type: {{service}}</label><br>
+        <label for={{form.id_date}}>Date: </label>
+        {{ form.date }}
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            {{ form.date }}
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+
+        <input type="date" id={{form.id_date}} name={{form.id_date}}><br>
+        <label for="cost">Total Amount: {{cost_}}</label>
+    </fieldset> -->
+    <input type="submit" value="Book">
+</form>
+
+    {% endblock %}
