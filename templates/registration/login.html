@@ -8,7 +8,7 @@
 <div class="login">
       <h2 style="padding-bottom: 15px; ">Log In</h2>
       <form method="post" >
-        <div style="border-top: 3px solid hsl(175, 87%, 46%);border-bottom: 3px solid hsl(175, 87%, 46%); padding-top: 15px;">
+        <div style="border-top: 3px solid black;border-bottom: 3px solid black; padding-top: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
           {% csrf_token %}
         {{ form.as_p }}
         </div>
@@ -17,7 +17,7 @@
         </div>
         <!-- <div class="loginbtn" style="padding-top: 15px; border-top: 3px solid hsl(175, 87%, 46%);"><a type="submit">Log In</a></div> -->
         <div type="submit" class="forgotbtn" style="margin: 15px auto;"><a href="{% url 'password_reset' %}">Forgot Password</a></div>
-        <div style="margin: 30px auto auto;" type="submit" class="signupbtn"><a href="{% url 'signup' %}">Sign Up</a></div>
+        <div style="margin: 30px auto auto;" type="submit" class="signupbtn"><a href="{% url 'accounts:signup' %}">Sign Up</a></div>
       </form>
 </div>
 {% endblock %}

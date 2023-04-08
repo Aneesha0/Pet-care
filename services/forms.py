@@ -1,20 +1,11 @@
 from django import forms
-from django.forms import ModelForm, DateField
-from django.contrib.auth.models import User
-from .models import Service
 from .models import Book
 
-
 class Submit(forms.ModelForm):
-   owner=forms.CharField(label='owner',required=True)
-   pet_name = forms.CharField(label='pet_name',required=True)
+   owner=forms.CharField(label='Your Name',required=True)
+   pet_name = forms.CharField(label="Pet's Name",required=True)
    class Meta:
       model=Book
-      fields = ['owner','services','pet_name','date','statuses']
-      widgets = {'statuses': forms.HiddenInput()}
-
-
-      # fields = '__all__'
-      # widgets = {'statuses': forms.HiddenInput(),
-      #            'services': forms.HiddenInput(),
-      #            'owners': forms.HiddenInput()}
+      fields = ['owner','services','pet_name','animal','date','statuses']
+      widgets = {'statuses': forms.HiddenInput(),
+                 'services':forms.HiddenInput()}

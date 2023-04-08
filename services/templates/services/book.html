@@ -3,11 +3,12 @@
 {% block title %}Services{% endblock %}
 
 {% block content %}
+<div style="border: 3px solid black;padding: 25px;background-color: #85dcb8;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;text-align: center;">
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <p>Service: {{service}}
-    <p>Total Amount: {{cost_}}
+    <p>Service: {{service}}</p>
+    <p>Total Amount: {{cost_}}</p>
     <!-- <fieldset>
         <label for={{form.id_owner}}>Owner Name: </label>{{form.owner}}<br>
         <label for={{form.id_pet_name}}>Pet Name: </label>{{form.pet_name}}<br>
@@ -25,7 +26,7 @@
         <input type="date" id={{form.id_date}} name={{form.id_date}}><br>
         <label for="cost">Total Amount: {{cost_}}</label>
     </fieldset> -->
-    <input type="submit" value="Book">
+    <input type="submit" value="Book" style="font-family: fantasy;background-color: #e27d60;padding: 8px 32px;font-size: 1.3em;">
 </form>
-
+</div>
     {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'C:\Users\anjan\Documents\Bluelight\Django\wada\templates\base.html' %}
+{% block content %}
+    <div class="container-fluid accounts ">
+        <div class="row accounts sidebar">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <a href="{%url 'accounts:default' %}" class="inside card">Profile</a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                <a href="{% url 'password_reset' %}" class="inside card">Reset Password</a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                <a class="inside card" href="{% url 'accounts:display' %}">Past Bookings</a>
+            </div>
+        </div>
+        <div class="row sidebar-content" style="margin: 15px;padding: 30px;border: 2px solid black; background-color: #85dcb8;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <div class="row ">
+            {% block accounts %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

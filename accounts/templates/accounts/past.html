@@ -1,0 +1,54 @@
+{%extends 'accounts/index.html' %}
+
+{% block accounts %}
+{% if book %}
+    {% for i in book %}
+    <div class="past col-lg-4" style="float: left;text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> 
+        <div style="border: 2px solid black;margin: 12px;background-color: #e8a876;padding: 12px;">
+        
+        <form action="{%url 'accounts:cancel' forloop.counter %}" method="post">
+            {% csrf_token %}
+                           
+                    <fieldset>
+                        <p>Date of Booking: {{i.time}}</p>
+
+                        <p>Owner's Name: {{i.owner}}</p>
+                        <p>Pet's Name: {{i.pet_name}}</p>
+                        {% if i.services_id == 1 %}
+                        <p>Service Type: Grooming</p>
+                        {%endif%}
+                        {% if i.services_id == 2 %}
+                        <p>Service Type: Boarding</p>
+                        {%endif%}
+                        {% if i.services_id == 3 %}
+                        <p>Service Type: Day Out</p>
+                        {%endif%}
+                        {% if i.services_id == 4 %}
+                        <p>Service Type: Grooming</p>
+                        {%endif%}
+                        {% if i.services_id == 5 %}
+                        <p>Service Type: Pool Sessions</p>
+                        {%endif%}
+                        <p>Date Scheduled: {{i.date}}</p>
+                        {% if i.statuses_id == 1 %}
+                        <p>Status of Booking: Scheduled</p>
+                        {%endif%}
+                        {% if i.statuses_id == 2 %}
+                        <p>Status of Booking: Completed</p>
+                        {%endif%}
+                        {% if i.statuses_id == 3 %}
+                        <p>Status of Booking: Cancelled</p>
+                        {%endif%}
+                        {% if i.statuses_id == 1 %}
+                        <input type="submit" value="Cancel Booking" >
+                        {%endif%}
+                    </fieldset>
+        </form>
+    </div>
+    </div>
+    {% endfor %}
+    {% else %}
+        <div>No Bookings Yet</div>
+        {%endif%}
+
+{% endblock %}

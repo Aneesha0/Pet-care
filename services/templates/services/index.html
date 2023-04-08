@@ -1,12 +1,28 @@
 {% extends 'C:\Users\anjan\Documents\Bluelight\Django\wada\templates\base.html' %}
+{% load static %}
 {% block content %}
-{% if services_list %}
-    <ul>
-    {% for serv in services_list %}
-        <li><a href="{% url 'book' %}">book {{ serv.services_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No services are available.</p>
-{% endif %}
+
+    {% if services_list %}
+        {% for serv in services_list %}
+            <div class="col-lg-12" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: large;margin: 30px auto;">
+                <div style="border:2px solid black;background-color: #85dcb8;height: auto;">
+                <div style="padding: 25px; ">
+                    <img src ="{{serv.image.url}}" style="width: 200px;height: 200px;float: left;">
+                    <span style="position: relative;left: 12.5px;">{{serv.description}}</span>
+                </div>
+                <div style="margin: 30px auto;text-align: center;">
+                    {% if user.is_authenticated %}
+                        {% url  'services:book' serv.id as the_url %}
+                    {% else %}
+                        {% url  'login' as the_url %}
+                    {% endif %}
+                <a href={{the_url}} style="font-weight: bold;font-family:cursive;border: 2px solid black;white-space: nowrap;padding: 8px;background-color: #e27d60;">Book {{ serv.services_name }} Service</a>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+    {% else %}
+        <p>No services are available.</p>
+    {% endif %}
+
 {% endblock %}
